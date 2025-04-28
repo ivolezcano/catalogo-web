@@ -19,7 +19,7 @@ export default function Home() {
   const [cantidades, setCantidades] = useState<{ [codigo: string]: number }>({});
   const [filtroMarcas, setFiltroMarcas] = useState<string[]>([]);
   const [marcasDisponibles, setMarcasDisponibles] = useState<string[]>([]);
-  const [mostrarFiltros, setMostrarFiltros] = useState(false);
+  const [mostrarFiltros] = useState(false);
 
   useEffect(() => {
     fetch("/productos.json")
