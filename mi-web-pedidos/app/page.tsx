@@ -178,7 +178,7 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {Object.keys(productosAgrupadosPorMarca).map((marca) => (
             <div key={marca}>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-6 uppercase tracking-wider bg-gradient-to-r from-teal-500 via-teal-600 to-teal-700 text-transparent bg-clip-text drop-shadow-lg p-4 border border-teal-500 rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-in-out">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-6 uppercase tracking-wider bg-gradient-to-r from-teal-500 via-teal-600 to-teal-700 bg-clip-text drop-shadow-lg p-4 border border-teal-500 rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-in-out">
                 {marca}
               </h2>
 
