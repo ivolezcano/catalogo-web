@@ -3,13 +3,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'arcordiezb2c.vteximg.com.br',
+        hostname: 'drive.google.com',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'grimbergdentales.vteximg.com.br',
+        hostname: 'http2.mlstatic.com',
         port: '',
         pathname: '/**',
       },
