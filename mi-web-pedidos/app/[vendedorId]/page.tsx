@@ -149,7 +149,7 @@ export default function Home() {
         >
           Enviar Pedido
         </button>
-        <div className="fixed bottom-12 right-4 z-50 flex items-center gap-2 bg-white border border-red-300 px-4 py-2 rounded-full shadow-lg transition-all duration-300 focus-within:ring-2 focus-within:ring-green-400">
+        <div className="fixed bottom-12 right-4 z-50 flex items-center gap-2 bg-white border border-red-400 px-4 py-2 rounded-full shadow-lg transition-all duration-300 focus-within:ring-2 focus-within:ring-green-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5 text-gray-500"
@@ -162,7 +162,7 @@ export default function Home() {
           <input
             type="text"
             placeholder="Buscar producto..."
-            className="outline-none text-sm w-48 placeholder-gray-400"
+            className="outline-none text-sm w-48 placeholder-black-400"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
