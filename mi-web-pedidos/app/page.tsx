@@ -156,13 +156,6 @@ export default function Home() {
               >
                 Enviar Pedido
               </button>
-              <input
-                type="text"
-                placeholder="Buscar producto..."
-                className="fixed top-2 right-4 z-50 border px-4 py-2 rounded-md bg-white text-sm shadow-md"
-                value={busqueda}
-                onChange={(e) => setBusqueda(e.target.value)}
-              />
             <SheetTitle>MARCAS</SheetTitle>
             <SheetContent side="right" className="w-72 p-6 bg-white rounded-2xl shadow-lg overflow-hidden">
               <h2 className="text-2xl font-semibold text-gray-900 mb-6 tracking-tight">Filtrar por Marca</h2>
