@@ -20,6 +20,7 @@ export default function Home() {
   const [filtroMarcas, setFiltroMarcas] = useState<string[]>([]);
   const [marcasDisponibles, setMarcasDisponibles] = useState<string[]>([]);
   const [mostrarFiltros] = useState(false);
+  const [busqueda, setBusqueda] = useState("");
 
   useEffect(() => {
     fetch("/productos.json")
@@ -63,9 +64,16 @@ export default function Home() {
     window.open(link, "_blank");
   };
 
-  const productosFiltrados = filtroMarcas.length
-    ? productos.filter((producto) => filtroMarcas.includes(producto.Marcas))
-    : productos;
+  const productosFiltrados = productos.filter((producto) => {
+    const coincideMarca = filtroMarcas.length === 0 || filtroMarcas.includes(producto.Marcas);
+    
+    const palabrasBusqueda = busqueda.toLowerCase().split(" ").filter(p => p);
+    const coincideBusqueda = palabrasBusqueda.every(palabra =>
+      producto["NombreArtículo"].toLowerCase().includes(palabra)
+    );
+    
+    return coincideMarca && coincideBusqueda;
+  });
 
   const productosAgrupadosPorMarca = productosFiltrados.reduce((acc, producto: Producto) => {
     const marca = producto.Marcas;
@@ -114,6 +122,24 @@ export default function Home() {
         >
           Enviar Pedido
         </button>
+        <div className="fixed bottom-12 right-4 z-50 flex items-center gap-2 bg-white border border-gray-300 px-4 py-2 rounded-full shadow-lg transition-all duration-300 focus-within:ring-2 focus-within:ring-green-400">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 text-gray-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+          </svg>
+          <input
+            type="text"
+            placeholder="Buscar producto..."
+            className="outline-none text-sm w-48 placeholder-gray-400"
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+          />
+        </div>
         {/* Botón para Filtros en Mobile */}
         <div className="md:hidden">
           <Sheet>
@@ -130,6 +156,13 @@ export default function Home() {
               >
                 Enviar Pedido
               </button>
+              <input
+                type="text"
+                placeholder="Buscar producto..."
+                className="fixed top-2 right-4 z-50 border px-4 py-2 rounded-md bg-white text-sm shadow-md"
+                value={busqueda}
+                onChange={(e) => setBusqueda(e.target.value)}
+              />
             <SheetTitle>MARCAS</SheetTitle>
             <SheetContent side="right" className="w-72 p-6 bg-white rounded-2xl shadow-lg overflow-hidden">
               <h2 className="text-2xl font-semibold text-gray-900 mb-6 tracking-tight">Filtrar por Marca</h2>
