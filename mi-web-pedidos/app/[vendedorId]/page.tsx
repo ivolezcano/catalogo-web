@@ -162,7 +162,7 @@ export default function Home() {
           <input
             type="text"
             placeholder="Buscar producto..."
-            className="outline-none text-sm w-48 placeholder-gray-400"
+            className="border-2 border-green-500 outline-none text-sm w-48 placeholder-gray-400"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
