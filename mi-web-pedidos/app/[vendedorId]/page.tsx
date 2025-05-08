@@ -250,7 +250,7 @@ export default function Home() {
                 <div key={producto["CódigoArtículo"]} className="bg-white p-4 rounded-lg shadow flex flex-col items-center">
                   {producto.LinkFoto && (
                     <Image
-                      src={producto.LinkFoto.trim()}
+                      src={producto.LinkFoto?.trim() ? producto.LinkFoto.trim() : "/noimage.png"}
                       alt={producto["NombreArtículo"]}
                       width={150}
                       height={150}

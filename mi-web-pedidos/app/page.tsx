@@ -82,6 +82,7 @@ export default function Home() {
     return acc;
   }, {} as { [key: string]: Producto[] });
 
+
   return (
     <main className="flex min-h-screen bg-gray-50">
       {/* Panel de Filtros */}
@@ -223,7 +224,7 @@ export default function Home() {
                 <div key={producto["CódigoArtículo"]} className="bg-white p-4 rounded-lg shadow flex flex-col items-center">
                   {producto.LinkFoto && (
                     <Image
-                      src={producto.LinkFoto.trim()}
+                      src={producto.LinkFoto}
                       alt={producto["NombreArtículo"]}
                       width={150}
                       height={150}
